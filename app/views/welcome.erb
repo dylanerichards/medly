@@ -9,9 +9,14 @@
         Never forget to take your medication again!
       </p>
 
+      <% if session[:user_id] %>
+        Welcome back, <%= User.find(session[:user_id]).name %>
+      <% else %>
+        <a href="/users/new" class="btn btn-primary">Sign Up</a>
 
-      <a href="/users/new" class="btn btn-primary">Sign Up</a>
-      <button class="btn btn-secondary">Sign In</button>
+        <button class="btn btn-secondary">Sign In</button>
+      <% end %>
+
 
     </div>
 
