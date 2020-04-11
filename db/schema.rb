@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20200411172938) do
     t.string   "name"
     t.string   "reason"
     t.integer  "interval"
+    t.integer  "user_id"
     t.datetime "last_reminder_sent_at"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

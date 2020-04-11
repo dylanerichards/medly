@@ -6,20 +6,56 @@
       <h2>Welcome to Medly</h2>
 
       <p>
-        Never forget to take your medication again!
+      Never forget to take your medication again!
       </p>
 
       <% if session[:user_id] %>
         Welcome back, <%= User.find(session[:user_id]).name %>
+      <br>
+
+      <a href="/logout" class="btn btn-warning btn-sm">Log out</a>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <h3>Enter a new medication</h3>
+
+      <form action="/medicines" method="POST">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name"/>
         <br>
 
-        <a href="/logout" class="btn btn-warning btn-sm">Log out</a>
+        <label for="interval">Reminder Interval</label>
+        <input id="interval" type="text" name="interval"/>
+        <br>
 
-      <% else %>
-        <a href="/users/new" class="btn btn-primary">Sign Up</a>
+        <label for="condition">Why are you taking it?</label>
+        <input id="condition" type="text" name="reason"/>
+        <br>
 
-        <a href="/login" class="btn btn-secondary">Sign In</a>
-      <% end %>
+        <input type="hidden" name="user_id" value="<%= session[:user_id] %>" />
+        <br>
+
+        <button class="btn btn-primary" type="submit">Add reminder</button>
+      </form>
+
+      <h2>My Reminders</h2>
+
+        <% User.find(session[:user_id]).medicines.each do |medicine| %>
+          <h1><%= User.find(session[:user_id]).medicines.count %></h1>
+            <%= medicine.name %> | every <%= medicine.interval %> minutes
+        <% end %>
+
+
+
+    <% else %>
+      <a href="/users/new" class="btn btn-primary">Sign Up</a>
+
+      <a href="/login" class="btn btn-secondary">Sign In</a>
+    <% end %>
 
 
     </div>
