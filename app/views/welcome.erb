@@ -11,6 +11,10 @@
 
       <% if session[:user_id] %>
         Welcome back, <%= User.find(session[:user_id]).name %>
+        <br>
+
+        <a href="/logout" class="btn btn-warning btn-sm">Log out</a>
+
       <% else %>
         <a href="/users/new" class="btn btn-primary">Sign Up</a>
 

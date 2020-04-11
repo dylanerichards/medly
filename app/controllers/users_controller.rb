@@ -14,4 +14,9 @@ class UsersController < ApplicationController
     redirect "/"
   end
 
+  get "/logout" do
+    session.clear
+    redirect "/"
+  end
+
 end
