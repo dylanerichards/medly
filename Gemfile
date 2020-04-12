@@ -11,6 +11,8 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+gem 'whenever'
+gem 'twilio-ruby'
 
 group :test do
   gem 'rspec'
