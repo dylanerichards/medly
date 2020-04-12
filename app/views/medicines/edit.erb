@@ -1,0 +1,32 @@
+<h1>Edit Medicine Reminder</h1>
+
+<br>
+
+
+<form action="/medicines/<%= @medicine.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete">
+  <button class="btn btn-danger" type="submit">Delete reminder</button>
+</form>
+
+<br>
+<br>
+
+
+<form action="/medicines/<%= @medicine.id %>" method="POST">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" value="<%= @medicine.name %>"/>
+  <br>
+
+  <label for="interval">Reminder Interval</label>
+  <input id="interval" type="text" name="interval" value="<%= @medicine.interval %>"/>
+  <br>
+
+  <label for="condition">Why are you taking it?</label>
+  <input id="condition" type="text" name="reason" value="<%= @medicine.reason %>"/>
+  <br>
+
+  <input type="hidden" name="user_id" value="<%= session[:user_id] %>" />
+  <br>
+
+  <button class="btn btn-primary" type="submit">Edit reminder</button>
+</form>
