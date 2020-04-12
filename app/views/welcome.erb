@@ -43,10 +43,10 @@
       </form>
 
       <h2>My Reminders</h2>
+          <h1><%= User.find(session[:user_id]).medicines.count %></h1>
 
         <% User.find(session[:user_id]).medicines.each do |medicine| %>
-          <h1><%= User.find(session[:user_id]).medicines.count %></h1>
-            <%= medicine.name %> | every <%= medicine.interval %> minutes
+            <%= medicine.name %> | every <%= medicine.interval %> minutes // <a href="/medicines/<%=medicine.id %>/edit">edit</a> <br />
         <% end %>
 
 
